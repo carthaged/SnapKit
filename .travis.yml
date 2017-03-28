@@ -1,0 +1,15 @@
+language: objective-c
+osx_image: xcode8.3
+before_install:
+- brew update
+- brew outdated carthage || brew upgrade carthage
+script:
+- ./build.sh SnapKit/SnapKit
+deploy:
+  provider: releases
+  api_key:
+    secure: qy9SDv1s4Amf0SarZPj/Amo+Lgr+CMnWktzvgX89SBhOuo71TdxFBTo6iViVUzN8pGh2Gp5J9JC60cVY+qJ+Kn8hX/FcyW79ihPjPv6LQfCTDgIA5862pxWjeS0NAnyQwpH0pYnoAN/hnZQK0Xd5mSzfU5VlwXdiNQY1xq87onTwHbrTiy38ZQPHqMFSErvYhGJ37gLAW0S6MaRJ4gXaMsQE/ZZuAMuiRp4hcBYmpDJxRl5u6UiVnYZ8JXnSEH60tPLDMFYlZtfD9teLS6Gc9UbCS1BiiImn2mAITQorVoKexsCXzzs7FEFvJclHoIiF4PPAKtqhxegGcPptFBOH8PALFn1hpgEyDex06CPCcfaeTDJvaoajb4NJR1OHiyImSb0uZiUSlqzVUTOAoqeaHBfvBL/Bo15BAvzNrtGMDF9U80GjvodklHiuCB6zAWDB7xYMTiHLsFHCeOBsSx1cFRtDzaFJeDarknQwNfnFSjdUUYwJMUpmAplOzxtIsJ8nq0+ZEs2mo032RW8/PEtHsckH3nq63JkiaeFegVRbek8oCvUOY6podKBH7wuz/nmg4mDwtOdljmx/Bkk0QbybgkBU2xaKUlgADiT7Z8rsfcYfjitWwbj8/glmeAe1vhyw4DO7TMG841CJ8tmci0PKJ7303woXghRwrKojbmV9rLE=
+  file: Archives/*
+  skip_cleanup: true
+  on:
+    tags: true
